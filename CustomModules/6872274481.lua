@@ -13429,10 +13429,3 @@ run(function()
 		end
 	})
 end)]]
-
---[[run(function()
-	local Disabler = {Enabled = false}
-	local ZephyrSpeed = {Value = 1}
-	local DisablerMode = {Value = "Scythe"}
-	local mode = "Scythe"
-	local sd = fa
