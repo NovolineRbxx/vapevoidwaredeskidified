@@ -71,7 +71,7 @@ local function errorNotification(title, text, duration)
 end
 
 function RenderFunctions:GithubHash(repo, owner)
-    local html = httprequest({Url = 'https://github.com/'..(owner or 'Erchobg')..'/'..(repo or 'vapevoidware')}).Body -- had to use this cause "Arceus X" is absolute bs LMFAO
+    local html = httprequest({Url = 'https://github.com/'..(owner or 'GalaxyGuardDev')..'/'..(repo or 'vapevoidware')}).Body -- had to use this cause "Arceus X" is absolute bs LMFAO
 	for i,v in next, html:split("\n") do 
 	    if v:find('commit') and v:find('fragment') then 
 	       local str = v:split("/")[5]
@@ -141,7 +141,7 @@ function RenderFunctions:GetFile(file, onlineonly, custompath, customrepo)
     local filepath = (custompath and custompath..'/'..file or 'vape/Libraries')..'/'..file
     if not isfile(filepath) or onlineonly then 
         local Rendercommit = RenderFunctions:GithubHash(customrepo)
-        local success, body = pcall(function() return game:HttpGet('https://raw.githubusercontent.com/Erchobg/'..customrepo..'/'..Rendercommit..'/'..file, true) end)
+        local success, body = pcall(function() return game:HttpGet('https://raw.githubusercontent.com/GalaxyGuardDev/'..customrepo..'/'..Rendercommit..'/'..file, true) end)
         if success and body ~= '404: Not Found' and body ~= '400: Invalid request' then 
             local directory = RenderFunctions:CreateLocalDirectory(filepath)
             body = file:sub(#file - 3, #file) == '.lua' and body:sub(1, 35) ~= 'Voidware Custom Vape Signed File' and '-- Voidware Custom Vape Signed File /n'..body or body
@@ -231,7 +231,7 @@ end
 local cachedjson
 function RenderFunctions:UpdateWhitelist()
     local success, whitelistTable = pcall(function() 
-        return cachedjson or httpService:JSONDecode(game.HttpGetAsync(game, 'https://raw.githubusercontent.com/Erchobg/whitelist/main/whitelist.json'))
+        return cachedjson or httpService:JSONDecode(game.HttpGetAsync(game, 'https://raw.githubusercontent.com/GalaxyGuardDev/whitelist/main/whitelist.json'))
     end)
     if success and type(whitelistTable) == 'table' then 
         cachedjson = whitelistTable
@@ -438,7 +438,7 @@ task.spawn(function()
                     pcall(GuiLibrary.CreateNotification, 'Render', plr.DisplayName..' is using '..v..'!', 100) 
                 end
                 if RenderFunctions:GetPlayerType(6, plr) then 
-                    RenderFunctions:CreatePlayerTag(plr, 'VOIDWARE USER', 'B95CF4') 
+                    RenderFunctions:CreatePlayerTag(plr, 'GALAXYGUARD USER', 'B95CF4') 
                 end
                 table.insert(RenderFunctions.configUsers, plr)
             end
