@@ -143,15 +143,15 @@ end
 
 local newcolor = function() return {Hue = 0, Sat = 0, Value = 0} end
 
-void = {}
+galaxy = {}
 
-void.round = function(x : Number)
+galaxy.round = function(x : Number)
 	return x % 0.1 >= 0.05 and x + (0.1 - x % 0.1) or x - x % 0.1;
 end
 
-void.version = GalaxyGuardStore.VersionInfo.MainVersion
+galaxy.version = GalaxyGuardStore.VersionInfo.MainVersion
 
-void.load = tick()
+galaxy.load = tick()
 
 store.blockRaycast.FilterType = Enum.RaycastFilterType.Include
 local AutoLeave = {Enabled = false}
@@ -1380,12 +1380,13 @@ bedwars = setmetatable({
 	KillEffectMeta = require(replicatedStorage.TS.locker["kill-effect"]["kill-effect-meta"]).KillEffectMeta,
 	KnockbackUtil = require(replicatedStorage.TS.damage["knockback-util"]).KnockbackUtil,
 	MatchEndScreenController = Flamework.resolveDependency("client/controllers/game/match/match-end-screen-controller@MatchEndScreenController"),
-	MinerRemote = dumpRemote(debug.getconstants(debug.getproto(KnitClient.Controllers.MinerController.onKitEnabled, 1))),
+	--MinerRemote = dumpRemote(debug.getconstants(debug.getproto(KnitClient.Controllers.MinerController.onKitEnabled, 1))),
 	MageRemote = dumpRemote(debug.getconstants(debug.getproto(KnitClient.Controllers.MageController.registerTomeInteraction, 1))),
 	MageKitUtil = require(replicatedStorage.TS.games.bedwars.kit.kits.mage["mage-kit-util"]).MageKitUtil,
 	PickupMetalRemote = dumpRemote(debug.getconstants(debug.getproto(debug.getproto(KnitClient.Controllers.MetalDetectorController.KnitStart, 1), 2))),
 	PickupRemote = dumpRemote(debug.getconstants(KnitClient.Controllers.ItemDropController.checkForPickup)),
-	PinataRemote = dumpRemote(debug.getconstants(debug.getproto(debug.getproto(KnitClient.Controllers.PiggyBankController.KnitStart, 2), 5))),
+	--PinataRemote = dumpRemote(debug.getconstants(debug.getproto(debug.getproto(KnitClient.Controllers.PiggyBankController.KnitStart, 2), 5))),
+	PinataRemote = '',	
 	ProjectileMeta = require(replicatedStorage.TS.projectile["projectile-meta"]).ProjectileMeta,
 	ProjectileRemote = dumpRemote(debug.getconstants(debug.getupvalue(KnitClient.Controllers.ProjectileController.launchProjectileWithValues, 2))),
 	QueryUtil = require(replicatedStorage["rbxts_include"]["node_modules"]["@easy-games"]["game-core"].out).GameQueryUtil,
