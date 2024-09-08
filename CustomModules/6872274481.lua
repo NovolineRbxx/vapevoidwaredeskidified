@@ -1833,7 +1833,7 @@ do
 	end)
 	local textlabel = Instance.new("TextLabel")
 	textlabel.Size = UDim2.new(0.302310646, 0, 0.062656641, 0)
-	textlabel.Text = "Thanks for using GalaxyGuard :D -erchobg"
+	textlabel.Text = "hello :D - stars.space"
 	textlabel.BackgroundTransparency = 1
 	textlabel.ZIndex = 10
 	textlabel.TextStrokeTransparency = 0
@@ -1932,12 +1932,7 @@ task.spawn(function()
 	end
 end)
 
-repeat task.wait() until game:IsLoaded()
---[[if store.matchState == 0 then
-	warningNotification("GalaxyGuardAntiCrash", "Waiting for the game to load...", 5)
-	repeat task.wait() until store.matchState ~= 0
-	warningNotification("GalaxyGuardAntiCrash", "Game Loaded. Loading GalaxyGuard now...", 3)
-end--]]
+
 
 run(function()
 	local AimAssist = {Enabled = false}
