@@ -216,7 +216,7 @@ if not isfile("vape/CustomModules/cachechecked.txt") then
 				if isfile(v) and not readfile(v):find("--This watermark is used to delete the file if its cached, remove it to make the file persist after commits.") then
 					local last = v:split('\\')
 					last = last[#last]
-					local suc, publicrepo = pcall(function() return game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/vapevoidware/"..readfile("vape/commithash.txt").."/CustomModules/"..last) end)
+					local suc, publicrepo = pcall(function() return game:HttpGet("https://raw.githubusercontent.com/GalaxyGuardDev/GalaxyGuardRoblox/"..readfile("vape/commithash.txt").."/CustomModules/"..last) end)
 					if suc and publicrepo and publicrepo ~= "404: Not Found" then
 						writefile("vape/CustomModules/"..last, "--This watermark is used to delete the file if its cached, remove it to make the file persist after commits.\n"..publicrepo)
 					end
@@ -288,24 +288,9 @@ local World = GuiLibrary.CreateWindow({
 	Icon = "vape/assets/WorldIcon.png", 
 	IconSize = 16
 })
-local Voidware = GuiLibrary.CreateWindow({
-	Name = "Voidware", 
+local GalaxyGuard = GuiLibrary.CreateWindow({
+	Name = "GalaxyGuard", 
 	Icon = "vape/assets/UtilityIcon.png", 
-	IconSize = 17
-})
-local GameScripts = GuiLibrary.CreateWindow({
-	Name = "GameScripts", 
-	Icon = "vape/assets/HoverArrow2.png", 
-	IconSize = 17
-})
-local VoidwareDev = GuiLibrary.CreateWindow({
-	Name = "VoidwareDev", 
-	Icon = "vape/assets/HoverArrow2.png", 
-	IconSize = 17
-})
-local MobileSupport = GuiLibrary.CreateWindow({
-	Name = "MobileSupport", 
-	Icon = "vape/assets/HoverArrow2.png", 
 	IconSize = 17
 })
 local Friends = GuiLibrary.CreateWindow2({
@@ -323,12 +308,7 @@ local Profiles = GuiLibrary.CreateWindow2({
 	Icon = "vape/assets/ProfilesIcon.png", 
 	IconSize = 19
 })
---- pro moment eeheasdalsdjlasjkjd
-task.spawn(function()
-	pcall(function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/vapevoidware/main/Libraries/idklol.lua", true))()
-	end)
-end)
+--- big balls moment sjjamshdhskjshsjwjwusjj
 GUI.CreateDivider()
 GUI.CreateButton({
 	Name = "Combat", 
@@ -361,24 +341,10 @@ GUI.CreateButton({
 	IconSize = 16
 })
 GUI.CreateButton({
-	Name = "Voidware", 
-	Function = function(callback) Voidware.SetVisible(callback) end, 
+	Name = "GalaxyGuard", 
+	Function = function(callback) GalaxyGuard.SetVisible(callback) end, 
 	Icon = "vape/assets/UtilityIcon.png", 
 	IconSize = 17
-})
-GUI.CreateDivider("CustomScripts")
-GUI.CreateButton({
-	Name = "GameScripts", 
-	Function = function(callback) GameScripts.SetVisible(callback) end, 
-})
-GUI.CreateDivider("Other")
-GUI.CreateButton({
-	Name = "VoidwareDev", 
-	Function = function(callback) VoidwareDev.SetVisible(callback) end, 
-})
-GUI.CreateButton({
-	Name = "MobileSupport", 
-	Function = function(callback) MobileSupport.SetVisible(callback) end, 
 })
 GUI.CreateDivider("MISC")
 GUI.CreateButton({
@@ -749,13 +715,13 @@ OnlineProfilesButton.MouseButton1Click:Connect(function()
 		local onlineprofiles = {}
 		local saveplaceid = tostring(shared.CustomSaveVape or game.PlaceId)
         local success, result = pcall(function()
-            return game:GetService("HttpService"):JSONDecode(game:HttpGet("https://raw.githubusercontent.com/Erchobg/VapeProfiles/main/Profiles/"..saveplaceid.."/profilelist.txt", true))
+            return game:GetService("HttpService"):JSONDecode(game:HttpGet("https://raw.githubusercontent.com/GalaxyGuardDev/VapeProfiles/main/Profiles/"..saveplaceid.."/profilelist.txt", true))
         end)
 		for i,v in pairs(success and result or {}) do 
 			onlineprofiles[i] = v
 		end
 		for i2,v2 in pairs(onlineprofiles) do
-			local profileurl = "https://raw.githubusercontent.com/Erchobg/VapeProfiles/main/Profiles/"..saveplaceid.."/"..v2.OnlineProfileName
+			local profileurl = "https://raw.githubusercontent.com/GalaxyGuardDev/VapeProfiles/main/Profiles/"..saveplaceid.."/"..v2.OnlineProfileName
 			local profilebox = Instance.new("Frame")
 			profilebox.BackgroundColor3 = Color3.fromRGB(31, 30, 31)
 			profilebox.Parent = OnlineProfilesList
@@ -1620,13 +1586,12 @@ local windowSortOrder = {
 	RenderButton = 3,
 	UtilityButton = 4,
 	WorldButton = 5,
-	VoidwareButton = 6,
-	CustomScriptsButton = 7,
+	GalaxyGuardButton = 7,
 	FriendsButton = 8,
 	TargetsButton = 9,
 	ProfilesButton = 10
 }
-local windowSortOrder2 = {"Combat", "Blatant", "Render", "Utility", "World", "Voidware", "CustomScripts"}
+local windowSortOrder2 = {"Combat", "Blatant", "Render", "Utility", "World", "GalaxyGuard"}
 
 local function getVapeSaturation(val)
 	local sat = 0.9
@@ -1845,7 +1810,7 @@ if not shared.NoAutoExecute then
 				if shared.VapeDeveloper then 
 					loadstring(readfile("vape/NewMainScript.lua"))() 
 				else 
-					loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/vapevoidware/main/NewMainScript.lua", true))()
+					loadstring(game:HttpGet("https://raw.githubusercontent.com/GalaxyGuardDev/GalaxyGuardRoblox/main/NewMainScript.lua", true))()
 				end
 			]]
 			if shared.VapeDeveloper then
@@ -1960,14 +1925,13 @@ GUISettings.CreateButton2({
 			RenderWindow = 4,
 			UtilityWindow = 5,
 			WorldWindow = 6,
-			VoidwareWindow = 7,
-			CustomScriptsWindow = 8,
-			FriendsWindow = 9,
-			TargetsWindow = 10,
-			ProfilesWindow = 11,
-			["Text GUICustomWindow"] = 12,
-			TargetInfoCustomWindow = 13,
-			RadarCustomWindow = 14
+			GalaxyGuardWindow = 7,
+			FriendsWindow = 8,
+			TargetsWindow = 9,
+			ProfilesWindow = 10,
+			["Text GUICustomWindow"] = 11,
+			TargetInfoCustomWindow = 12,
+			RadarCustomWindow = 13
 		}
 		local storedpos = {}
 		local num = 6
@@ -2000,10 +1964,6 @@ GeneralSettings.CreateButton2({
 	Name = "UNINJECT",
 	Function = GuiLibrary.SelfDestruct
 })
-GeneralSettings.CreateButton2({
-	Name = "RESTART",
-	Function = GuiLibrary.Restart
-})
 local function loadVape()
 	if not shared.VapeIndependent then
 		loadstring(vapeGithubRequest("Universal.lua"))()
@@ -2011,7 +1971,7 @@ local function loadVape()
 			loadstring(readfile("vape/CustomModules/"..game.PlaceId..".lua"))()
 		else
 			if not shared.VapeDeveloper then
-				local suc, publicrepo = pcall(function() return game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/vapevoidware/"..readfile("vape/commithash.txt").."/CustomModules/"..game.PlaceId..".lua") end)
+				local suc, publicrepo = pcall(function() return game:HttpGet("https://raw.githubusercontent.com/GalaxyGuardDev/GalaxyGuardRoblox/"..readfile("vape/commithash.txt").."/CustomModules/"..game.PlaceId..".lua") end)
 				if suc and publicrepo and publicrepo ~= "404: Not Found" then
 					writefile("vape/CustomModules/"..game.PlaceId..".lua", "--This watermark is used to delete the file if its cached, remove it to make the file persist after commits.\n"..publicrepo)
 					loadstring(readfile("vape/CustomModules/"..game.PlaceId..".lua"))()
